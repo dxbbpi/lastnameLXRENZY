@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LXRENZY.LASTNAME</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc29jZWlydTNkeXB3amtjcXplazRreDZvMm1qY2Z6Z3hwc2tjMnBzOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UNHplVba2fweBfkLHv/giphy.gif') no-repeat center center fixed;
+      background-size: cover;
+      color: #00fff7;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .glow-orb {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #00fff7 0%, transparent 70%);
+      animation: floatNeon 4s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .glow-orb.one {
+      top: 15%;
+      left: 10%;
+    }
+
+    .glow-orb.two {
+      bottom: 10%;
+      right: 15%;
+    }
+
+    @keyframes floatNeon {
+      0% { transform: translateY(0); opacity: 0.6; }
+      50% { transform: translateY(-20px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.6; }
+    }
+
+    header {
+      width: 100%;
+      padding: 25px 40px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 0 20px #00fff7;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 10px #00fff7;
+    }
+
+    nav button {
+      background: transparent;
+      border: 2px solid #00fff7;
+      color: #00fff7;
+      font-size: 1rem;
+      padding: 10px 20px;
+      margin-left: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    nav button:hover {
+      background: #00fff7;
+      color: #000;
+      box-shadow: 0 0 15px #00fff7;
+    }
+
+    main {
+      padding: 150px 30px 60px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ffffff;
+      text-shadow: 0 0 15px #00fff7;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      z-index: 10;
+    }
+
+    footer button {
+      background-color: #00fff7;
+      color: #000;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px #00fff7;
+    }
+
+    footer button:hover {
+      background-color: #00c2ba;
+    }
+
+    .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+    }
+
+    .volume-control input[type="range"] {
+      width: 120px;
+      accent-color: #00fff7;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="particles-js"></div>
+  <div class="glow-orb one"></div>
+  <div class="glow-orb two"></div>
+
+  <header>
+    <div class="logo">LXRENZY LASTNAME</div>
+    <nav>
+      <button onclick="window.location.href='singup.html'">เข้านามสกุล</button>
+      <button onclick="window.location.href='member.html'">LXRENZY</button>
+      <button onclick="window.location.href='report.html'">REPORT</button>
+    </nav>
+  </header>
+
+  <main>
+    <h1>WELCOME TO WEBSITE</h1>
+    <p>มีปัญหาอะไรกับคนในนามสกุลนี้สามารถ Report ได้เลย</p>
+  </main>
+
+  <footer>
+    <button onclick="toggleMusic()">PLAY MUSIC</button>
+    <div class="volume-control">
+      <label for="volume"></label>
+      <input type="range" id="volume" min="0" max="1" step="0.1" value="1" onchange="setVolume(this.value)">
+    </div>
+  </footer>
+
+  <audio id="audio" src="hippop.mp3" preload="auto"></audio>
+
+  <script>
+    function toggleMusic() {
+      const audio = document.getElementById("audio");
+      audio.paused ? audio.play() : audio.pause();
+    }
+
+    function setVolume(value) {
+      const audio = document.getElementById("audio");
+      audio.volume = value;
+    }
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (e.keyCode == 123) e.preventDefault(); // Block F12
+    });
+  </script>
+
+  <!-- Particle.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80 },
+        "color": { "value": "#00fff7" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3 },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00fff7",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 3
+        }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
