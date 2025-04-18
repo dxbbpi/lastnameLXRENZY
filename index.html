@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" href="https://img2.pic.in.th/pic/1111e7ca349ff75a1f5.png" type="image/x-icon">
   <title>LXRENZY.LASTNAME</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
@@ -18,9 +19,9 @@
       background: url('111.png') no-repeat center center fixed;
       background-size: cover;
       color: #fff7f7;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     #particles-js {
@@ -29,7 +30,6 @@
       height: 100%;
       z-index: -2;
     }
-
 
     .glow-orb.one {
       top: 15%;
@@ -87,8 +87,9 @@
     }
 
     main {
-      padding: 150px 30px 60px;
+      padding: 150px 30px 40px;
       text-align: center;
+      flex: 1;
     }
 
     h1 {
@@ -98,18 +99,16 @@
       margin-bottom: 20px;
     }
 
-    footer {
-      position: fixed;
-      bottom: 20px;
+    .music-controls {
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 20px;
-      z-index: 10;
+      margin-bottom: 20px;
     }
 
-    footer button {
+    .music-controls button {
       background-color: #ff0000;
       color: #000;
       border: none;
@@ -121,7 +120,7 @@
       box-shadow: 0 0 15px #ff0000;
     }
 
-    footer button:hover {
+    .music-controls button:hover {
       background-color: #ff0000;
     }
 
@@ -135,6 +134,27 @@
     .volume-control input[type="range"] {
       width: 120px;
       accent-color: #fc0000;
+    }
+
+    .py-2 {
+      background: linear-gradient(45deg, #ff0000 10%, #ff8800 20%, #fbff00 30%, #3cfc01 40%, #00ffc8 50%, #0099ff 60%, #0011ff 70%, #a001fc 80%, #ff009d 90%);
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shine 4s linear infinite;
+      letter-spacing: 2px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px 0 20px;
+    }
+
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
     }
   </style>
 </head>
@@ -158,11 +178,19 @@
     <p>มีปัญหาอะไรกับคนในนามสกุลนี้สามารถ Report ได้เลย</p>
   </main>
 
-  <footer>
+  <!-- Music Controls -->
+  <div class="music-controls">
     <button onclick="toggleMusic()">PLAY MUSIC</button>
     <div class="volume-control">
       <label for="volume"></label>
       <input type="range" id="volume" min="0" max="1" step="0.1" value="1" onchange="setVolume(this.value)">
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="py-2">
+      <h6>Copyright © Custom code By Jox © 2024 All Rights</h6>
     </div>
   </footer>
 
@@ -178,13 +206,14 @@
       const audio = document.getElementById("audio");
       audio.volume = value;
     }
+
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
       if (e.keyCode == 123) e.preventDefault(); // Block F12
     });
   </script>
 
-  <!-- Particle.js CDN -->
+  <!-- Particle.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
@@ -213,5 +242,6 @@
       }
     });
   </script>
+
 </body>
 </html>
