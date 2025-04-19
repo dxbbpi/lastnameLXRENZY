@@ -1,0 +1,213 @@
+/* ตั้งค่าพื้นฐาน */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #1c1c1c; /* พื้นหลังสีเทาเข้ม (เหมาะสมกับธีมแดงดำ) */
+    position: relative;
+}
+
+/* พื้นหลังแบบเลเยอร์ด้วย pseudo-element */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1506748686210-489c12a95e62?fit=crop&w=1200&h=1200&auto=format&dpr=2') no-repeat center center;
+    background-size: cover;
+    animation: backgroundMove 30s ease-in-out infinite;
+    z-index: -1;
+    opacity: 0.5;
+    will-change: background-position;
+    filter: blur(5px); /* เพิ่มความเบลอ */
+}
+
+/* เอ็ฟเฟ็กต์เลื่อนพื้นหลัง */
+@keyframes backgroundMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* กล่องรายชื่อ */
+.member-list {
+    text-align: center;
+    padding: 20px;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.75); /* สีพื้นหลังดำครึ่งโปร่งแสง */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(8px);
+}
+
+/* หัวเรื่อง */
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #ff3b3b; /* สีแดงสด */
+    text-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333; /* เงาสีแดง */
+}
+
+/* ค้นหา */
+.search-container {
+    position: relative;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 1px solid #db0101; /* สีแดง */
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.search-input:focus {
+    background-color: #fff;
+    border-color: #e74c3c; /* ปรับเป็นแดงเข้ม */
+}
+
+/* รายชื่อสมาชิก */
+.member {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 10px;
+    width: 150px; /* เพิ่มขนาดเพื่อให้พอดีกับข้อความ */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+    text-align: center; /* จัดตำแหน่งข้อความให้อยู่กลาง */
+}
+
+/* ปรับข้อความชื่อสมาชิก */
+.member .name {
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    display: block;
+    margin-top: 10px; /* เพิ่มระยะห่างจากโปรไฟล์ */
+}
+
+/* ชื่อสมาชิกเมื่อ hover */
+.member .name:hover {
+    color: #e74c3c; /* สีแดงเมื่อ hover */
+}
+
+/* ข้อความใต้ชื่อ */
+.member .profile-name {
+    font-size: 10px;
+    color: #ccc; /* ใช้สีอ่อนสำหรับข้อความรอง */
+    margin-top: 5px; /* เพิ่มระยะห่างจากชื่อ */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* เมื่อ hover บนสมาชิก */
+.member:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* โปรไฟล์ */
+.profile-pic {
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    will-change: transform;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+/* ปุ่มธีม */
+.theme-toggle {
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: #f39c12; /* สีทองเมื่อ hover */
+}
+
+/* ปุ่มหน้า/ถัดไป */
+.pagination button {
+    background-color: #e74c3c; /* สีแดง */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+.pagination button:hover {
+    background-color: #c0392b; /* สีแดงเข้มเมื่อ hover */
+}
+
+.pagination span {
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+/* โหมดมืด/สว่าง */
+body.dark-mode {
+    background: linear-gradient(45deg, #0d0d0d, #ff0000);
+}
+
+body.light-mode {
+    background: linear-gradient(45deg, #838383, #ff0000);
+}
+
+/* เครดิต */
+.credit {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #e74c3c; /* ใช้สีแดงสำหรับข้อความเครดิต */
+}
+
+.credit a {
+    color: #e74c3c;
+    text-decoration: none;
+}
+
+.credit a:hover {
+    text-decoration: underline;
+}
