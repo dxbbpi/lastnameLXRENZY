@@ -7,7 +7,8 @@ const members = [
     { name: "Jaydase Vincere", fbId: "jaydase.vincere#" },
     { name: "Hugo Vega", fbId: "61570465692953#" },
     { name: "eiei dadasdas ", fbId: "61570465692953#" },
-    { name: "Felix Lxrenzy", fbId: "61553664876339#" }
+    { name: "Felix Lxrenzy", fbId: "61553664876339#" },
+    { name: "Ciel Lxrenzy", fbId: "ciel.genesis.2024" }
   ];
   
   document.addEventListener("DOMContentLoaded", () => {
