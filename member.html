@@ -54,24 +54,27 @@
     .search-container {
       margin-bottom: 25px;
     }
-
   </style>
-  </head>
-  <body class="dark-mode">
 </head>
+
 <body class="dark-mode">
-    <div class="member-list">
-        <h1>JUTI LASTNAME</h1>
-        <div class="search-container">
-            <input type="text" id="search-input" class="search-input" placeholder="ค้นหาชื่อสมาชิก...">
-        </div>
-        <div id="member-container"></div>
-        <div id="pagination" class="pagination"></div>
-        <div class="credit">
-            Website <a href="https://www.facebook.com/" target="_blank">Dxbbpi</a> | Powered by <a href="https://www.facebook.com/lakksjslal.ksksiksks" target="_blank">Jox</a> | © 2025
-        </div>
-        <button id="theme-toggle" class="theme-toggle"><i class="fas fa-sun"></i></button>
+  <div id="particles-js"></div>
+
+  <div class="member-list">
+    <h1>LXRENZY LASTNAME</h1>
+    <div class="search-container">
+      <input type="text" id="search-input" class="search-input" placeholder="ค้นหาชื่อสมาชิก...">
     </div>
+    <div id="member-container"></div>
+    <div id="pagination" class="pagination"></div>
+    <div class="credit">
+      Website <a href="https://www.facebook.com/" target="_blank">Dxbbpi</a> |
+      Powered by <a href="https://www.facebook.com/lakksjslal.ksksiksks" target="_blank">Jox</a> | © 2025
+    </div>
+    <button id="theme-toggle" class="theme-toggle"><i class="fas fa-sun"></i></button>
+  </div>
+
+  <!-- JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
@@ -99,13 +102,14 @@
         }
       }
     });
+
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
       if (e.keyCode == 123) e.preventDefault(); // Block F12
     });
   </script>
+
   <script src="membersrp.js"></script>
-  <script src="styles.css"></script>
   <script src="script.js"></script>
 </body>
 </html>
