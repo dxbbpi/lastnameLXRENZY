@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LXRENZY.LASTNAME</title>
+  <link rel="shortcut icon" href="https://img2.pic.in.th/pic/1111e7ca349ff75a1f5.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at top, #1a0000 0%, #0a0a0a 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    .container {
+      text-align: center;
+      padding: 30px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: #ff1f4c;
+      text-shadow: 0 0 20px #ff003c, 0 0 40px #ff003c;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #bbbbbb;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+
+    .enter-btn {
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      background: transparent;
+      border: 2px solid #ff1f4c;
+      color: #ff1f4c;
+      border-radius: 50px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      z-index: 1;
+    }
+
+    .enter-btn::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0%;
+      background: #ff1f4c;
+      z-index: -1;
+      transition: 0.4s ease;
+    }
+
+    .enter-btn:hover {
+      color: black;
+      transform: scale(1.05);
+    }
+
+    .enter-btn:hover::before {
+      width: 100%;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      color: #666;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+
+    .neon-circle {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ff003c66 10%, transparent 70%);
+      filter: blur(60px);
+      animation: pulse 6s infinite ease-in-out;
+    }
+
+    .neon-circle.one {
+      top: -100px;
+      left: -100px;
+    }
+
+    .neon-circle.two {
+      bottom: -100px;
+      right: -100px;
+    }
+
+    /* ช่องประกาศเลื่อน */
+    .announcement-scroll {
+      width: auto;
+      background: rgba(0, 0, 0, 0.8);
+      color: #ff1f4c;
+      padding: 5px 10px; /* ลด padding ให้พอดีกับข้อความ */
+      border-radius: 10px;
+      box-shadow: 0 0 15px #ff003c;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 1rem; /* ปรับขนาดตัวอักษรให้เล็กลง */
+      margin-bottom: 20px; /* ห่างจากเนื้อหาด้านล่าง */
+      animation: fadeIn 2s ease-in-out;
+
+      display: flex; /* ใช้ flexbox */
+      justify-content: center; /* จัดตำแหน่งข้อความตรงกลาง */
+      align-items: center; /* จัดตำแหน่งข้อความแนวตั้งตรงกลาง */
+      height: 40px; /* ปรับความสูงให้เหมาะสม */
+    }
+
+    .announcement-scroll p {
+      color: #fff;
+      animation: scroll-left 15s linear infinite;
+      margin: 0; /* ลบ margin เพื่อให้ข้อความตรงกลางอย่างสมบูรณ์ */
+    }
+
+    /* เลื่อนข้อความจากขวาไปซ้าย */
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="neon-circle one"></div>
+  <div class="neon-circle two"></div>
+
+  <!-- ช่องประกาศเลื่อน -->
+  <div class="announcement-scroll">
+    <p>
+      หากคนในนามสกุลมีปัญหาอะไรสามารถกด REPORT ชื่อคนที่มีปัญหาได้เลย
+    </p>
+  </div>
+
+  <div class="container">
+    <h1>LXRENZY.LASTNAME</h1>
+    <button class="enter-btn" onclick="location.href='body.html'">เข้าสู่เว็บไซต์</button>
+  </div>
+
+<script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (e.keyCode == 123) e.preventDefault(); // Block F12
+    });
+</script>
+
+
+  <footer>© 2025 LXRENZY. Created by Jox</footer>
+</body>
+</html>

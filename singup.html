@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="https://img2.pic.in.th/pic/1111e7ca349ff75a1f5.png" type="image/x-icon">
+  <title>แบบฟอร์มนามสกุล</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Prompt', sans-serif;
+      background: linear-gradient(45deg, #0d0d0d, #ff0000);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-size: 400% 400%;
+      animation: gradientAnimation 10s ease infinite;
+      overflow: hidden;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      max-width: 450px;
+      width: 100%;
+      backdrop-filter: blur(10px);
+      margin: 20px 0;
+      z-index: 1;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000;
+      margin-bottom: 20px;
+    }
+
+    label, input, textarea, button {
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    input, textarea {
+      padding: 15px;
+      border-radius: 15px;
+      border: 2px solid transparent;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      transition: 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #ff0000;
+      outline: none;
+    }
+
+    button {
+      background: linear-gradient(45deg, #ff0000, #000000);
+      border: none;
+      color: white;
+      padding: 14px;
+      border-radius: 15px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(45deg, #ff6600, #ff0000);
+      transform: scale(1.05);
+    }
+
+    .status {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .status.success {
+      color: #00ff7f;
+    }
+
+    .status.error {
+      color: #ff6b6b;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .py-2 {
+      background: linear-gradient(45deg, #ff0000 10%, #ff8800 20%, #fbff00 30%, #3cfc01 40%, #00ffc8 50%, #0099ff 60%, #0011ff 70%, #a001fc 80%, #ff009d 90%);
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shine 4s linear infinite;
+      letter-spacing: 2px;
+      font-size: 14px;
+    }
+
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    /* Particle effect */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Particle effect container -->
+  <div class="particles"></div>
+
+  <div class="card">
+    <h2>แบบฟอร์มนามสกุล</h2>
+
+    <label for="facebook">ลิ้งค์เฟสบุ๊ค:</label>
+    <input type="text" id="facebook" placeholder="กรอกลิงก์เฟสบุ๊ค">
+
+    <label for="discord">ชื่อ Discord:</label>
+    <input type="text" id="discord" placeholder="ชื่อดิส">
+
+    <label for="age">อายุ:</label>
+    <input type="number" id="age" placeholder="กรอกอายุ">
+
+    <label for="reason">เหตุผลที่อยากเข้า:</label>
+    <textarea id="reason" placeholder="เหตุผลที่อยากเข้า"></textarea>
+
+    <label for="lastname">บังคับเปลี่ยนนามสกุล:</label>
+    <textarea id="lastname" placeholder="ถ้ารู้แล้วแค่พิมตอบกลับ"></textarea>
+
+    <button onclick="submitForm()">ส่งข้อมูล</button>
+    <div class="status" id="status"></div>
+  </div>
+
+  <footer>
+    <div class="py-2">
+      <h6>Copyright © Custom code By Jox © 2024 All Rights</h6>
+    </div>
+  </footer>
+
+  <script>
+    async function submitForm() {
+      const facebook = document.getElementById("facebook").value;
+      const discord = document.getElementById("discord").value;
+      const age = document.getElementById("age").value;
+      const reason = document.getElementById("reason").value;
+      const lastname = document.getElementById("lastname").value;
+
+      if (!facebook.trim() || !discord.trim() || !age.trim() || !reason.trim() || !lastname.trim()) {
+        document.getElementById("status").textContent = "กรุณากรอกข้อมูลให้ครบ";
+        document.getElementById("status").className = "status error";
+        return;
+      }
+
+      const webhookUrl = "https://discord.com/api/webhooks/1362774658189103167/2CFyFCbMmpR5-UqOFolbXcjAB6ILHmCSuLULboBkkS8BBbWrzgMEx_59eExg2r2syn4n";
+
+      const payload = {
+        content: ` **มีคนกรอกแบบฟอร์มเข้ามาแล้ว!**\n\n **เฟสบุ๊ค:** ${facebook}\n **Discord:** ${discord}\n **อายุ:** ${age}\n **เหตุผลที่อยากเข้า:** ${reason}\n **เปลี่ยนนามสกุล:** ${lastname}`
+      };
+
+      try {
+        const res = await fetch(webhookUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          document.getElementById("status").textContent = "ข้อมูลส่งเรียบร้อยแล้ว!";
+          document.getElementById("status").className = "status success";
+          document.getElementById("facebook").value = "";
+          document.getElementById("discord").value = "";
+          document.getElementById("age").value = "";
+          document.getElementById("reason").value = "";
+          document.getElementById("lastname").value = "";
+        } else {
+          document.getElementById("status").textContent = "ส่งไม่สำเร็จ ลองใหม่อีกครั้ง";
+          document.getElementById("status").className = "status error";
+        }
+      } catch (err) {
+        document.getElementById("status").textContent = "เกิดข้อผิดพลาด: " + err.message;
+        document.getElementById("status").className = "status error";
+      }
+    }
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (e.keyCode == 123) e.preventDefault(); // Block F12
+    });
+
+    // Particle effect script
+    (function () {
+      let particles = [];
+      let canvas = document.querySelector('.particles');
+      let ctx = canvas.getContext('2d');
+      let w = window.innerWidth;
+      let h = window.innerHeight;
+      canvas.width = w;
+      canvas.height = h;
+
+      class Particle {
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+          this.size = Math.random() * 3 + 1;
+          this.speedX = Math.random() * 3 - 1.5;
+          this.speedY = Math.random() * 3 - 1.5;
+          this.color = 'rgba(255, 0, 0, 0.8)';
+        }
+
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          if (this.size > 0.2) this.size -= 0.1;
+        }
+
+        draw() {
+          ctx.fillStyle = this.color;
+          ctx.strokeStyle = 'white';
+          ctx.lineWidth = 0.3;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.closePath();
+          ctx.fill();
+        }
+      }
+
+      function createParticles(event) {
+        let xPos = event.x;
+        let yPos = event.y;
+        for (let i = 0; i < 10; i++) {
+          particles.push(new Particle(xPos, yPos));
+        }
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+          if (particles[i].size <= 0.2) {
+            particles.splice(i, 1);
+            i--;
+          }
+        }
+        requestAnimationFrame(animateParticles);
+      }
+
+      window.addEventListener('mousemove', createParticles);
+      animateParticles();
+    })();
+
+  </script>
+</body>
+</html>
