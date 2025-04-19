@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="shortcut icon" href="https://img2.pic.in.th/pic/1111e7ca349ff75a1f5.png" type="image/x-icon">
   <title>LXRENZY.LASTNAME</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-
+  <link rel="shortcut icon" href="https://img2.pic.in.th/pic/1111e7ca349ff75a1f5.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -16,232 +15,172 @@
 
     body {
       font-family: 'Orbitron', sans-serif;
-      background: url('111.png') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff7f7;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-    }
-
-    .glow-orb.one {
-      top: 15%;
-      left: 10%;
-    }
-
-    .glow-orb.two {
-      bottom: 10%;
-      right: 15%;
-    }
-
-    @keyframes floatNeon {
-      0% { transform: translateY(0); opacity: 0.6; }
-      50% { transform: translateY(-20px); opacity: 1; }
-      100% { transform: translateY(0); opacity: 0.6; }
-    }
-
-    header {
-      width: 100%;
-      padding: 25px 40px;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(6px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 0 20px #ff0000;
-    }
-
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
+      background: radial-gradient(circle at top, #1a0000 0%, #0a0a0a 100%);
       color: #fff;
-      text-shadow: 0 0 10px #fd0000;
-    }
-
-    nav button {
-      background: transparent;
-      border: 2px solid #ff0000;
-      color: #ff0000;
-      font-size: 1rem;
-      padding: 10px 20px;
-      margin-left: 15px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    nav button:hover {
-      background: #ff0000;
-      color: #000;
-      box-shadow: 0 0 15px #ff0000;
-    }
-
-    main {
-      padding: 150px 30px 40px;
-      text-align: center;
-      flex: 1;
-    }
-
-    h1 {
-      font-size: 3rem;
-      color: #ffffff;
-      text-shadow: 0 0 15px #ff0000;
-      margin-bottom: 20px;
-    }
-
-    .music-controls {
-      width: 100%;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 20px;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    .container {
+      text-align: center;
+      padding: 30px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: #ff1f4c;
+      text-shadow: 0 0 20px #ff003c, 0 0 40px #ff003c;
       margin-bottom: 20px;
     }
 
-    .music-controls button {
-      background-color: #ff0000;
-      color: #000;
-      border: none;
-      padding: 10px 25px;
-      border-radius: 8px;
+    p {
+      font-size: 1.2rem;
+      color: #bbbbbb;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+
+    .enter-btn {
+      padding: 15px 40px;
+      font-size: 1.1rem;
       font-weight: bold;
+      background: transparent;
+      border: 2px solid #ff1f4c;
+      color: #ff1f4c;
+      border-radius: 50px;
       cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 0 15px #ff0000;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      z-index: 1;
     }
 
-    .music-controls button:hover {
-      background-color: #ff0000;
+    .enter-btn::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0%;
+      background: #ff1f4c;
+      z-index: -1;
+      transition: 0.4s ease;
     }
 
-    .volume-control {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: white;
+    .enter-btn:hover {
+      color: black;
+      transform: scale(1.05);
     }
 
-    .volume-control input[type="range"] {
-      width: 120px;
-      accent-color: #fc0000;
-    }
-
-    .py-2 {
-      background: linear-gradient(45deg, #ff0000 10%, #ff8800 20%, #fbff00 30%, #3cfc01 40%, #00ffc8 50%, #0099ff 60%, #0011ff 70%, #a001fc 80%, #ff009d 90%);
-      background-size: 200% auto;
-      color: transparent;
-      -webkit-background-clip: text;
-      background-clip: text;
-      animation: shine 4s linear infinite;
-      letter-spacing: 2px;
+    .enter-btn:hover::before {
+      width: 100%;
     }
 
     footer {
-      text-align: center;
-      padding: 10px 0 20px;
+      position: absolute;
+      bottom: 20px;
+      color: #666;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
     }
 
-    @keyframes shine {
-      to {
-        background-position: 200% center;
+    .neon-circle {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ff003c66 10%, transparent 70%);
+      filter: blur(60px);
+      animation: pulse 6s infinite ease-in-out;
+    }
+
+    .neon-circle.one {
+      top: -100px;
+      left: -100px;
+    }
+
+    .neon-circle.two {
+      bottom: -100px;
+      right: -100px;
+    }
+
+    /* ช่องประกาศเลื่อน */
+    .announcement-scroll {
+      width: auto;
+      background: rgba(0, 0, 0, 0.8);
+      color: #ff1f4c;
+      padding: 5px 10px; /* ลด padding ให้พอดีกับข้อความ */
+      border-radius: 10px;
+      box-shadow: 0 0 15px #ff003c;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 1rem; /* ปรับขนาดตัวอักษรให้เล็กลง */
+      margin-bottom: 20px; /* ห่างจากเนื้อหาด้านล่าง */
+      animation: fadeIn 2s ease-in-out;
+
+      display: flex; /* ใช้ flexbox */
+      justify-content: center; /* จัดตำแหน่งข้อความตรงกลาง */
+      align-items: center; /* จัดตำแหน่งข้อความแนวตั้งตรงกลาง */
+      height: 40px; /* ปรับความสูงให้เหมาะสม */
+    }
+
+    .announcement-scroll p {
+      color: #fff;
+      animation: scroll-left 15s linear infinite;
+      margin: 0; /* ลบ margin เพื่อให้ข้อความตรงกลางอย่างสมบูรณ์ */
+    }
+
+    /* เลื่อนข้อความจากขวาไปซ้าย */
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
       }
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+
   </style>
 </head>
 <body>
+  <div class="neon-circle one"></div>
+  <div class="neon-circle two"></div>
 
-  <div id="particles-js"></div>
-  <div class="glow-orb one"></div>
-  <div class="glow-orb two"></div>
-
-  <header>
-    <div class="logo">LXRENZY LASTNAME</div>
-    <nav>
-      <button onclick="window.location.href='singup.html'">เข้านามสกุล</button>
-      <button onclick="window.location.href='member.html'">LXRENZY</button>
-      <button onclick="window.location.href='report.html'">REPORT</button>
-    </nav>
-  </header>
-
-  <main>
-    <h1>WELCOME TO WEBSITE</h1>
-    <p>มีปัญหาอะไรกับคนในนามสกุลนี้สามารถ Report ได้เลย</p>
-  </main>
-
-  <!-- Music Controls -->
-  <div class="music-controls">
-    <button onclick="toggleMusic()">PLAY MUSIC</button>
-    <div class="volume-control">
-      <label for="volume"></label>
-      <input type="range" id="volume" min="0" max="1" step="0.1" value="1" onchange="setVolume(this.value)">
-    </div>
+  <!-- ช่องประกาศเลื่อน -->
+  <div class="announcement-scroll">
+    <p>
+      หากคนในนามสกุลมีปัญหาอะไรสามารถกด REPORT ชื่อคนที่มีปัญหาได้เลย
+    </p>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="py-2">
-      <h6>Copyright © Custom code By Jox © 2024 All Rights</h6>
-    </div>
-  </footer>
+  <div class="container">
+    <h1>LXRENZY.LASTNAME</h1>
+    <button class="enter-btn" onclick="location.href='body.html'">เข้าสู่เว็บไซต์</button>
+  </div>
 
-  <audio id="audio" src="hippop.mp3" preload="auto"></audio>
-
-  <script>
-    function toggleMusic() {
-      const audio = document.getElementById("audio");
-      audio.paused ? audio.play() : audio.pause();
-    }
-
-    function setVolume(value) {
-      const audio = document.getElementById("audio");
-      audio.volume = value;
-    }
-
+<script>
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
       if (e.keyCode == 123) e.preventDefault(); // Block F12
     });
-  </script>
+</script>
 
-  <!-- Particle.js -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 80 },
-        "color": { "value": "#ff0000" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.5 },
-        "size": { "value": 3 },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#ff0000",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 3
-        }
-      },
-      "interactivity": {
-        "events": {
-          "onhover": { "enable": true, "mode": "grab" }
-        }
-      }
-    });
-  </script>
 
+  <footer>© 2025 LXRENZY. Created by Jox</footer>
 </body>
 </html>
