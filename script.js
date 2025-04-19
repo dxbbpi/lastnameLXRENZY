@@ -1,4 +1,4 @@
-const defaultProfilePic = "https://img2.pic.in.th/pic/juti.png";
+const defaultProfilePic = "https://img5.pic.in.th/file/secure-sv1/1111907771a5865755f.png";
 const ITEMS_PER_PAGE = 10;
 let currentPage = 1;
 
