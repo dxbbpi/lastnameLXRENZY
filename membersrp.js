@@ -2,6 +2,7 @@
 const members = [
     { name: "Nonx Threethousand", fbId: "100092972023302#" },
     { name: "Jox Jutistory", fbId: "lakksjslal.ksksiksks" },
+    { "name": "Hydra Swizz", "fbId": "Leo4y#" },
     { name: "Nevil Diamondonsnow", fbId: "Nevilwtfzera#" },
     { name: "Midas Lxrenzy", fbId: "100065837666522#" },
     { name: "Jaydase Vincere", fbId: "jaydase.vincere#" },
